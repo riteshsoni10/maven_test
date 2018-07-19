@@ -10,5 +10,10 @@
       <name>Login Page</name>
       <url>http://maven.apache.org</url>
      
-      
+      <properties>
+    <failOnMissingWebXml>false</failOnMissingWebXml>   
+</properties>
+
+
+
     </project>
