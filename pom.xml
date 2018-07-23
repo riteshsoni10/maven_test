@@ -44,10 +44,7 @@
 					<version>7.5.Final</version>  
 					<executions>
 						<execution>
-							<phase>install</phase>
-							<goals>
-								<goal>deploy</goal>
-							</goals>
+							
 					 		<configuration>
 								<force>true</force>
 								<hostname>192.168.43.184</hostname>
