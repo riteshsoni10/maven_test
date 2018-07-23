@@ -41,17 +41,25 @@
 				<plugin>
 					<groupId>org.jboss.as.plugins</groupId>
 					<artifactId>jboss-as-maven-plugin</artifactId>
-					<version>7.1.1.Final</version>  
-					 <configuration>
-							<force>true</force>
-							<hostname>13.232.142.239</hostname>
-							<username>jboss</username>
-							<password>root</password>
-							<fileNames>
-							    <fileName>target/login.war</fileName>
-							</fileNames>
-					</configuration>
-					
+					<version>7.5.Final</version>  
+					<executions>
+						<execution>
+							<phase>install</phase>
+							<goals>
+								<goal>deploy</goal>
+							</goals>
+					 		<configuration>
+								<force>true</force>
+								<hostname>13.232.142.239</hostname>
+								<port>9999</port>
+								<username>jboss</username>
+								<password>root</password>
+								<fileNames>
+								    <fileName>target/login.war</fileName>
+								</fileNames>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
       
 				
