@@ -29,13 +29,12 @@
 			<groupId>org.codehaus.cargo</groupId>
 			<artifactId>cargo-core-uberjar</artifactId>
 
-		<version>1.4.18</version>
+		<version>1.6.8</version>
 		</dependency>
-	
 	<dependency>
 			<groupId>org.codehaus.cargo</groupId>
 			<artifactId>cargo-core-container-jboss</artifactId>
-			<version>1.4.18</version>
+			<version>1.6.8</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>commons-logging</artifactId>
@@ -75,7 +74,7 @@
 	<plugin>
 	  <groupId>org.codehaus.cargo</groupId>
 	  <artifactId>cargo-maven2-plugin</artifactId>
-	  <version>7.1.1.Final</version>
+	  <version>1.6.8</version>
 	  <configuration>
 	    <container>
 	      <containerId>jboss7x</containerId>
