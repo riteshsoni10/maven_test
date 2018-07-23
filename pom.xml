@@ -24,6 +24,14 @@
 
 	</dependencies>
 	   
+	<properties>
+		<jboss-as.deploy.hostname>192.168.43.184</jboss-as.deploy.hostname>  <!-- Where to deploy. -->
+		<jboss-as.deploy.user>jboss</jboss-as.deploy.user>
+		<jboss-as.deploy.pass>12oct1995</jboss-as.deploy.pass>
+		<plugin.war.warName>${project.build.finalName}</plugin.war.warName>
+	</properties>
+
+
 	<build>
 		<finalName>login</finalName>
 		<pluginManagement>     
@@ -34,7 +42,7 @@
 					<version>2.6</version>
 					<configuration>
 						<failOnMissingWebXml>false</failOnMissingWebXml> 
-						<warName>login</warName>
+						<warName>${plugin.war.warName}</warName>
 					</configuration>					
 			        </plugin>
     
@@ -47,24 +55,19 @@
 							
 					 		<configuration>
 								<force>true</force>
-								<hostname>192.168.43.184</hostname>
+								<hostname>${jboss-as.deploy.hostname}</hostname>
 								<port>9999</port>
-								<username>jboss</username>
-								<password>root</password>
+								<username>${jboss-as.deploy.user}</username>
+								<password>${jboss-as.deploy.pass}</password>
 								<fileNames>
-								    <fileName>target/login.war</fileName>
+								    <fileName>target/${plugin.war.warName}.war</fileName>
 								</fileNames>
 							</configuration>
 						</execution>
 					</executions>
 				</plugin>
       
-				
 
-
-				
-
- 
 			</plugins>
 
 		</pluginManagement>
