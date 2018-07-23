@@ -10,12 +10,7 @@
       <name>Login Page</name>
       <url>http://maven.apache.org</url>
       <dependencies>
-      <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-      </dependency>
+      
       <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
@@ -30,10 +25,41 @@
 	</dependency>
 
 	
+	<dependency>
+			<groupId>org.codehaus.cargo</groupId>
+			<artifactId>cargo-core-uberjar</artifactId>
+
+		<version>1.4.18</version>
+		</dependency>
+	<dependency>
+			<groupId>org.jboss.as</groupId>
+			<artifactId>jboss-as-controller-client</artifactId>
+			<version>7.5.0.Final-redhat-21</version>
+
+	</dependency>
+
+	<dependency>
+			<groupId>org.codehaus.cargo</groupId>
+			<artifactId>cargo-core-container-jboss</artifactId>
+			<version>1.4.18</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		
+
+
+	</dependency>
 
 
 
-	
+
+
+
+
+
 
       </dependencies>
 
@@ -51,6 +77,37 @@
 	<pluginManagement>     
 	<plugins>
     
+
+	<plugin>
+	  <groupId>org.codehaus.cargo</groupId>
+	  <artifactId>cargo-maven2-plugin</artifactId>
+	  <version>7.1.1.Final</version>
+	  <configuration>
+	    <container>
+	      <containerId>jboss7x</containerId>
+	      <type>remote</type>
+	    </container>
+	    <configuration>
+	      <type>runtime</type>
+	      <properties>
+		<cargo.hostname>13.232.142.239</cargo.hostname>
+		<cargo.jboss.management-native.port>9999</cargo.jboss.management-native.port>
+	      </properties>
+	    </configuration>
+	  </configuration>
+	  <dependencies>
+	    <dependency>
+	      <groupId>org.jboss.as</groupId>
+	      <artifactId>jboss-as-controller-client</artifactId>
+	      <version>7.1.1.Final</version>
+	    </dependency>
+	  </dependencies>
+	</plugin>
+
+
+
+
+
 	<plugin>
       <groupId>org.jboss.as.plugins</groupId>
       <artifactId>jboss-as-maven-plugin</artifactId>
@@ -63,7 +120,7 @@
                         </goals>
 			<configuration>
 			 <hostname>13.232.142.239</hostname>
-			 <port>9990</port>
+			 <port>9999</port>
 			 <username>jboss</username>
 			 <password>root</password>
 			 </configuration>
@@ -81,32 +138,7 @@
  
      
 
-<plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-            <execution>
-                <id>copy-war</id>
-                <phase>install</phase>
-                <goals>
-                    <goal>copy</goal>
-                </goals>
-                <configuration>
-                    <artifactItems>
-                        <artifactItem>
-                            <groupId>${project.groupId}</groupId>
-                            <artifactId>${project.artifactId}</artifactId>
-                            <version>${project.version}</version>
-                            <type>${project.packaging}</type>
-                            <overWrite>true</overWrite>
-                            <outputDirectory>\usr\share\jboss-as\standalone\deployments</outputDirectory>
-                            <destFileName>${project.build.finalName}.${project.packaging}</destFileName>
-                        </artifactItem>
-                    </artifactItems>
-                </configuration>
-            </execution>
-        </executions>
-    </plugin>
+
 
       </plugins>
 
