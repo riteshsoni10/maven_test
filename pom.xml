@@ -28,22 +28,61 @@
 		<finalName>login</finalName>
 		<pluginManagement>     
 			<plugins>
-    
-				<plugin>
-					<groupId>org.jboss.as.plugins</groupId>
-					<artifactId>jboss-as-maven-plugin</artifactId>
-					<version>7.1.1.Final</version>  
-					
-				</plugin>
-      
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>2.6</version>
 					<configuration>
 						<failOnMissingWebXml>false</failOnMissingWebXml> 
+						<warName>login</warName>
 					</configuration>					
 			        </plugin>
+    
+				<plugin>
+					<groupId>org.jboss.as.plugins</groupId>
+					<artifactId>jboss-as-maven-plugin</artifactId>
+					<version>7.1.1.Final</version>  
+					 <configuration>
+							<force>true</force>
+							<hostname>13.232.142.239:9990</hostname>
+							<username>jboss</username>
+							<password>root</password>
+							<fileNames>
+							    <fileName>target/login.war</fileName>
+							</fileNames>
+					</configuration>
+					
+				</plugin>
+      
+				
+
+
+				<plugin>
+				  <groupId>org.codehaus.cargo</groupId>
+				  <artifactId>cargo-maven2-plugin</artifactId>
+				  <version>1.3.3</version>
+				  <configuration>
+				    <container>
+				      <containerId>jboss7x</containerId>
+				      <type>remote</type>
+				    </container>
+				    <configuration>
+				      <type>runtime</type>
+				      <properties>
+					<cargo.hostname>13.232.142.239</cargo.hostname>
+					<cargo.jboss.management.native.port>9999</cargo.jboss.management.native.port>
+				      </properties>
+				    </configuration>
+				  </configuration>
+				  <dependencies>
+				    <dependency>
+				      <groupId>org.jboss.as</groupId>
+				      <artifactId>jboss-as-controller-client</artifactId>
+				      <version>7.1.1.Final</version>
+				    </dependency>
+				  </dependencies>
+				</plugin>
+
  
 			</plugins>
 
