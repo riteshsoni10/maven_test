@@ -1,85 +1,53 @@
-    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-      <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
      
-      <groupId>login</groupId>
-      <artifactId>maven</artifactId>
-      <version>1.0</version>
-      <packaging>war</packaging>
+	<groupId>login</groupId>
+	<artifactId>maven</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
      
-      <name>Login Page</name>
-      <url>http://maven.apache.org</url>
-      <dependencies>
-      
-      <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
-      </dependency>
+	<name>Login Page</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+	      		<groupId>javax.servlet</groupId>
+	      		<artifactId>servlet-api</artifactId>
+	      		<version>2.5</version>
+	      	</dependency>
 
+		<dependency>
+			<groupId>org.jboss.as</groupId>
+			<artifactId>jboss-as-controller-client</artifactId>
+			<version>7.1.1.Final</version>
+		</dependency>
 
-	<dependency>
-		<groupId>org.jboss.as</groupId>
-		<artifactId>jboss-as-controller-client</artifactId>
-		<version>7.1.1.Final</version>
-	</dependency>
-
-	
 	</dependencies>
-
-      <properties>
-      <failOnMissingWebXml>false</failOnMissingWebXml>   
-      </properties>
-     
-      
-     
+	   
+	<build>
+		<finalName>login</finalName>
+		<pluginManagement>     
+			<plugins>
     
-   
+				<plugin>
+					<groupId>org.jboss.as.plugins</groupId>
+					<artifactId>jboss-as-maven-plugin</artifactId>
+					<version>7.1.1.Final</version>  
+					
+				</plugin>
       
-      <build>
-      <finalName>login</finalName>
-	<pluginManagement>     
-	<plugins>
-    
-
-	<plugin>
-      <groupId>org.jboss.as.plugins</groupId>
-      <artifactId>jboss-as-maven-plugin</artifactId>
-      <version>7.1.1.Final</version>  
-     <executions>
-                    <execution>
-                        <phase>install</phase>
-                        <configuration>
-			 <hostname>13.232.142.239</hostname>
-			 <port>9999</port>
-			 <username>jboss</username>
-			 <password>root</password>
-			 </configuration>
-
-                    </execution>
-      </executions>
-      </plugin>
-      
-     
-       <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-             <version>2.6</version>
-        </plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<failOnMissingWebXml>false</failOnMissingWebXml> 
+					</configuration>					
+			        </plugin>
  
-     
+			</plugins>
 
-
-
-      </plugins>
-
-
-
-
-	</pluginManagement>
+		</pluginManagement>
       </build>
 
-
-
-
-    </project>
+</project>
