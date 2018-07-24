@@ -24,7 +24,13 @@
 
 	</dependencies>
 	   
-	
+	<properties>
+		<jboss-as.hostname>192.168.43.184</jboss-as.hostname>  <!-- Where to deploy. -->
+		<jboss-as.port>999</jboss-as.port>
+		<jboss-as.user>jboss</jboss-as.user>
+		<jboss-as.pass>12oct1995</jboss-as.pass>
+	</properties>
+
 
 	<build>
 		<finalName>login</finalName>
@@ -46,13 +52,7 @@
 					<groupId>org.jboss.as.plugins</groupId>
 					<artifactId>jboss-as-maven-plugin</artifactId>
 					<version>7.1.1.Final</version>  
-					<configuration>
-							<jboss-as.hostname>192.168.43.184</jboss-as.hostname>  <!-- Where to deploy. -->
-							<jboss-as.user>jboss</jboss-as.user>
-							<jboss-as.pass>12oct1995</jboss-as.pass>
-		
-					</configuration>
-
+					
 					
 				</plugin>
       
