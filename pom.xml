@@ -27,8 +27,8 @@
 	<properties>
 		<jboss-as.hostname>192.168.43.184</jboss-as.hostname>  <!-- Where to deploy. -->
 		<jboss-as.port>999</jboss-as.port>
-		<jboss-as.user>jboss</jboss-as.user>
-		<jboss-as.pass>12oct1995</jboss-as.pass>
+		<jboss-as.username>jboss</jboss-as.username>
+		<jboss-as.password>12oct1995</jboss-as.password>
 	</properties>
 
 
@@ -52,6 +52,11 @@
 					<groupId>org.jboss.as.plugins</groupId>
 					<artifactId>jboss-as-maven-plugin</artifactId>
 					<version>7.1.1.Final</version>  
+					<configuration>
+						<hostname>${jboss-as.hostname}</hostname>
+						<username>${jboss-as.username}</username>
+						<password>${jboss-as.password}</password>
+					</configuration>
 					
 					
 				</plugin>
