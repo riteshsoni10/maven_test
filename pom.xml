@@ -25,7 +25,7 @@
 	</dependencies>
 	   
 	<properties>
-		<jboss-as.deploy.hostname>ec2-13-232-143-38.ap-south-1.compute.amazonaws.com</jboss-as.deploy.hostname>  <!-- Where to deploy. -->
+		<jboss-as.deploy.hostname>192.168.43.184</jboss-as.deploy.hostname>  <!-- Where to deploy. -->
 		<jboss-as.deploy.user>jboss</jboss-as.deploy.user>
 		<jboss-as.deploy.pass>12oct1995</jboss-as.deploy.pass>
 		<plugin.war.warName>${project.build.finalName}</plugin.war.warName>
@@ -47,24 +47,9 @@
 			        </plugin>
     
 				<plugin>
-					<groupId>org.jboss.as.plugins</groupId>
-					<artifactId>jboss-as-maven-plugin</artifactId>
-					<version>7.1.1.Final</version>  
-					<executions>
-						<execution>
-							
-					 		<configuration>
-								<force>true</force>
-								<host>${jboss-as.deploy.hostname}</host>
-								<port>9999</port>
-								<username>${jboss-as.deploy.user}</username>
-								<password>${jboss-as.deploy.pass}</password>
-								<fileNames>
-								    <fileName>target/${plugin.war.warName}.war</fileName>
-								</fileNames>
-							</configuration>
-						</execution>
-					</executions>
+				    <groupId>org.wildfly.plugins</groupId>
+				    <artifactId>wildfly-maven-plugin</artifactId>
+				    <version>1.0.2.Final</version>
 				</plugin>
       
 
