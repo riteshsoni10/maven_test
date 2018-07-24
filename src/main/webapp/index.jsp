@@ -7,7 +7,7 @@
     </head>
     <body>
     <h1>Registration </h1>
-    <form action="data.jsp" method="post">
+    <form action="success.jsp" method="post">
     			<table style="with: 50%">
     				<tr>
     					<td>UserName</td>
