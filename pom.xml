@@ -24,13 +24,7 @@
 
 	</dependencies>
 	   
-	<properties>
-		<jboss-as.hostname>192.168.43.184</jboss-as.hostname>  <!-- Where to deploy. -->
-		<jboss-as.user>jboss</jboss-as.user>
-		<jboss-as.pass>12oct1995</jboss-as.pass>
-		
-	</properties>
-
+	
 
 	<build>
 		<finalName>login</finalName>
@@ -52,20 +46,14 @@
 					<groupId>org.jboss.as.plugins</groupId>
 					<artifactId>jboss-as-maven-plugin</artifactId>
 					<version>7.1.1.Final</version>  
-					<executions>
-						<execution>
-							
-					 		<configuration>
-								<force>true</force>
-								<hostname>${jboss-as.hostname}</hostname>
-								<port>99978</port>
-								<username>${jboss-as.user}</username>
-								<password>${jboss-as.pass}</password>
-								 <timeout>30000</timeout>
-								<name>login.war</name>
-							</configuration>
-						</execution>
-					</executions>
+					<properties>
+							<jboss-as.hostname>192.168.43.184</jboss-as.hostname>  <!-- Where to deploy. -->
+							<jboss-as.user>jboss</jboss-as.user>
+							<jboss-as.pass>12oct1995</jboss-as.pass>
+		
+					</properties>
+
+					
 				</plugin>
       
 
